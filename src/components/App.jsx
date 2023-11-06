@@ -22,7 +22,7 @@ import Contacts from './Contacts';
 
 function App() {
   return (
-    <Router>
+    <Router basename="/goit-react-hw-08-phonebook">
       <div>
         <Navigation />
         <UserMenu />
