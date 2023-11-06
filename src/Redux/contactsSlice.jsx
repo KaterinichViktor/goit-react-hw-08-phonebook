@@ -1,55 +1,43 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { getAllContactsApi } from '../components/api'; // Імпорт функцій API
+import { createSlice } from '@reduxjs/toolkit';
 
-const initialState = {
-  data: [],
-  loading: false,
-  error: null,
-  filter: '',
-};
-
-export const fetchContacts = createAsyncThunk('contacts/fetch', async () => {
-  try {
-    const data = await getAllContactsApi();
-    return data;
-  } catch (error) {
-    throw error;
-  }
-});
-
-const contactsSlice = createSlice({
+export const contactsSlice = createSlice({
   name: 'contacts',
-  initialState,
+  initialState: {
+    items: [],
+    filter: '',
+    token: '', // Додаємо поле для токену
+    userEmail: '', // Додаємо поле для зберігання імейлу користувача
+  },
   reducers: {
     addContact: (state, action) => {
-      state.data.push(action.payload);
+      state.items = state.items.concat(action.payload);
     },
     deleteContact: (state, action) => {
-      state.data = state.data.filter((contact) => contact.id !== action.payload);
+      state.items = state.items.filter((contact) => contact.id !== action.payload);
     },
     updateFilter: (state, action) => {
       state.filter = action.payload;
     },
-  },
-  extraReducers: (builder) => {
-    builder
-      .addCase(fetchContacts.pending, (state) => {
-        state.loading = true;
-        state.error = null;
-      })
-      .addCase(fetchContacts.fulfilled, (state, action) => {
-        state.loading = false;
-        state.data = action.payload;
-      })
-      .addCase(fetchContacts.rejected, (state, action) => {
-        state.loading = false;
-        state.error = action.error.message;
-      });
+    setToken: (state, action) => {
+      state.token = action.payload;
+    },
+    setUserEmail: (state, action) => {
+      state.userEmail = action.payload;
+    },
   },
 });
 
-export const { addContact, deleteContact, updateFilter } = contactsSlice.actions;
-export const selectContacts = (state) => state.contacts.data;
+export const {
+  addContact,
+  deleteContact,
+  updateFilter,
+  setToken,
+  setUserEmail,
+} = contactsSlice.actions;
+
+export const selectContacts = (state) => state.contacts.items;
 export const selectFilter = (state) => state.contacts.filter;
+export const selectToken = (state) => state.contacts.token;
+export const selectUserEmail = (state) => state.contacts.userEmail;
 
 export default contactsSlice.reducer;
