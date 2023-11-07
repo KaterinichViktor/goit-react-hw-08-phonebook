@@ -22,9 +22,9 @@ function UserMenu() {
   };
 
   return (
-    <div>
-      <p>{userEmail}</p>
-      <button onClick={handleLogout}>Logout</button>
+    <div className='user-menu'>
+      <p>Email{userEmail}</p>
+      <button onClick={handleLogout} className='logout-btn'>Logout</button>
     </div>
   );
 }

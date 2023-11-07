@@ -81,6 +81,7 @@ const Contacts = () => {
   return (
     <div>
       <form>
+      <h2>Add Contact</h2>
         <input
           type="text"
           name="name"

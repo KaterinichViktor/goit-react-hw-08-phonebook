@@ -5,6 +5,8 @@ import store from './Redux/store';
 import App from './components/App';
 import { setToken } from './Redux/contactsSlice';
 
+import './index.css';
+
 // Отримання токену з локального сховища
 const token = localStorage.getItem('token');
 if (token) {

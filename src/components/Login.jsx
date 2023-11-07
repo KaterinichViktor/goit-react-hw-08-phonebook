@@ -3,6 +3,8 @@ import { useDispatch } from 'react-redux';
 import { loginUserApi } from '../components/api';
 import { setToken, setUserEmail } from '../Redux/contactsSlice';
 
+import '../css/login.css'
+
 function Login() {
   const [formData, setFormData] = useState({
     email: '',
@@ -49,21 +51,21 @@ function Login() {
   }
 
   return (
-    <div>
-      <h2>Login</h2>
-      <form onSubmit={handleSubmit}>
-        <label>
-          Email:
-          <input type="email" name="email" value={formData.email} onChange={handleChange} />
+    <div className='login'>
+      {/* <h2>Login</h2> */}
+      <form onSubmit={handleSubmit} className='login-form'>
+        <label className='login-label'>
+          Email
+          <input type="email" name="email" value={formData.email} onChange={handleChange} className='login-input'/>
         </label>
-        <br />
-        <label>
-          Password:
-          <input type="password" name="password" value={formData.password} onChange={handleChange} />
+        {/* <br /> */}
+        <label className='login-label'>
+          Password
+          <input type="password" name="password" value={formData.password} onChange={handleChange} className='login-input'/>
         </label>
-        <br />
+        {/* <br /> */}
         {error && <p style={{ color: 'red' }}>{error}</p>}
-        <button type="submit">Login</button>
+        <button type="submit" className='login-btn'>Login</button>
       </form>
     </div>
   );

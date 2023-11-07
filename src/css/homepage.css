@@ -1,0 +1,29 @@
+.nav-links{
+    display: flex;
+    gap: 200px;
+    
+}
+.nav-links a{
+    color: black;
+    cursor: pointer;
+}
+.navigation{
+    margin-top: 100px;
+}
+.user-menu{
+    display: flex;
+   align-items: center;
+    font-size: 16px;
+}
+.logout-btn{
+    height: 24px;
+    margin-left: 10px;
+    padding: 4px;
+
+    cursor: pointer;
+}
+
+.logout-btn:hover{
+    color: red;
+}
+

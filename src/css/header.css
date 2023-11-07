@@ -1,0 +1,15 @@
+.header{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    padding: 15px 50px;
+    box-sizing: border-box;
+    background-color: rgba(59, 77, 77, 0.5);
+
+    
+}
+
+.logo{
+    font-size: 28px;
+    font-weight: 600;
+}
