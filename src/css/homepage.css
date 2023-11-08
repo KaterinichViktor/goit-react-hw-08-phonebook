@@ -7,6 +7,9 @@
     color: black;
     cursor: pointer;
 }
+.nav-links a:focus{
+    color: blue;
+}
 .navigation{
     margin-top: 100px;
 }
@@ -16,14 +19,26 @@
     font-size: 16px;
 }
 .logout-btn{
-    height: 24px;
+    height: 30px;
+    width: 60px;
     margin-left: 10px;
     padding: 4px;
+
+    border: none;
+    border-radius: 5px;
+
+    color: white;
+    background-color: #fb8e6d;
 
     cursor: pointer;
 }
 
 .logout-btn:hover{
-    color: red;
+    /* background-color: #165286; */
+    background-color: #eb6e48;
+
 }
 
+/* .active-link{
+    color: rgb(233, 119, 43);
+} */

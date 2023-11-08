@@ -46,7 +46,10 @@
 
 
 import React, { useState } from 'react';
-import { registerUserApi } from '../components/api'; // Імпорт функції API для реєстрації
+import { registerUserApi } from '../components/api';
+import { Link } from 'react-router-dom';
+
+import '../css/login-register.css'
 
 function Register() {
   const [formData, setFormData] = useState({
@@ -75,25 +78,24 @@ function Register() {
   };
 
   return (
-    <div>
-      {/* <h2>Register</h2> */}
-      <form onSubmit={handleSubmit}>
-        <label>
-          Name:
-          <input type="text" name="name" value={formData.name} onChange={handleChange} />
+    <div className='register'>
+      <h2 className='form-header'>Signup</h2>
+      <form onSubmit={handleSubmit} className='register-form'>
+        <label className='register-label'>
+          <input type="text" name="name" value={formData.name} onChange={handleChange} className='register-input' placeholder='Nickname'/>
         </label>
-        <br />
-        <label>
-          Email:
-          <input type="email" name="email" value={formData.email} onChange={handleChange} />
+        {/* <br /> */}
+        <label className='register-label'>
+          <input type="email" name="email" value={formData.email} onChange={handleChange} className='register-input' placeholder='Email'/>
         </label>
-        <br />
-        <label>
-          Password:
-          <input type="password" name="password" value={formData.password} onChange={handleChange} />
+        {/* <br /> */}
+        <label className='register-label'>
+          <input type="password" name="password" value={formData.password} onChange={handleChange} className='register-input' placeholder='Password'/>
         </label>
-        <br />
-        <button type="submit">Register</button>
+        {/* <br /> */}
+        <button type="submit" className='register-btn'>Register</button>
+
+        <p className='hint'>Already have an account? <Link to="/login" className='hint-link' >Login</Link></p>
       </form>
     </div>
   );

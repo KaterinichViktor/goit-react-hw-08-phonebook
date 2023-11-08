@@ -14,12 +14,13 @@
 // App.js
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Navigation from './Navigation';
+// import Navigation from './Navigation';
 // import UserMenu from './UserMenu';
 import Register from './Register';
 import Login from './Login';
 import Contacts from './Contacts';
 import Header from './Header';
+import Homepage from './Homepage';
 
 function App() {
   return (
@@ -36,12 +37,16 @@ function App() {
       >
         
         <Header/>
-        <Navigation />
-        <Routes>
-          <Route path="/register" element={<Register />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/contacts" element={<Contacts />} />
-        </Routes>
+        {/* <Navigation /> */}
+        <div className='container'>
+          <Routes>
+            <Route path="/" element={<Homepage />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/contacts" element={<Contacts />} />
+          </Routes>
+        </div>
+        
       </div>
     </Router>
   );

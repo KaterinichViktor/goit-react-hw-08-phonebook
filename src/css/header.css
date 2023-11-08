@@ -4,12 +4,16 @@
     justify-content: space-between;
     padding: 15px 50px;
     box-sizing: border-box;
-    background-color: rgba(59, 77, 77, 0.5);
+    background-color: #428ccc;
 
     
 }
 
 .logo{
+    color: #fb8e6d;
     font-size: 28px;
     font-weight: 600;
+}
+.logo:hover{
+    color: #eb6e48;
 }

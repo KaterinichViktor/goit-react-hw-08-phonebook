@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { loginUserApi } from '../components/api';
 import { setToken, setUserEmail } from '../Redux/contactsSlice';
+import { Link } from 'react-router-dom';
 
-import '../css/login.css'
+import '../css/login-register.css'
 
 function Login() {
   const [formData, setFormData] = useState({
@@ -52,20 +53,19 @@ function Login() {
 
   return (
     <div className='login'>
-      {/* <h2>Login</h2> */}
+      <h2 className='form-header'>Login</h2>
       <form onSubmit={handleSubmit} className='login-form'>
         <label className='login-label'>
-          Email
-          <input type="email" name="email" value={formData.email} onChange={handleChange} className='login-input'/>
+          <input type="email" name="email" value={formData.email} onChange={handleChange} className='login-input' placeholder='Email Address'/>
         </label>
         {/* <br /> */}
         <label className='login-label'>
-          Password
-          <input type="password" name="password" value={formData.password} onChange={handleChange} className='login-input'/>
+          <input type="password" name="password" value={formData.password} onChange={handleChange} className='login-input' placeholder='Password'/>
         </label>
         {/* <br /> */}
         {error && <p style={{ color: 'red' }}>{error}</p>}
         <button type="submit" className='login-btn'>Login</button>
+        <p className='hint'>Don't have an account? <Link to="/register" className='hint-link'>Signup</Link></p>
       </form>
     </div>
   );
