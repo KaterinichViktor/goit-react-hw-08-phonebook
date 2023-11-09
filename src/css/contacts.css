@@ -1,0 +1,66 @@
+.contact-list-container {
+    position: relative;
+  }
+  
+  .contacts-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  
+  .contact {
+    width: 200px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: lightgray;
+    padding: 10px;
+  }
+  
+  .contact-avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: lightblue;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .contact-info {
+    display: flex;
+    align-items: center;
+  }
+  
+  .add-contact-button {
+    width: 200px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: lightgray;
+    padding: 10px;
+    position: absolute;
+    bottom: 0;
+  }
+  
+  .contacts-item{
+    background-color: aqua;
+  }
+  .contacts-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    list-style: none;
+  }
+  
+  .contacts-list li {
+    width: calc(50% - 10px); /* Використовуйте calc для ширини елементів з відступами між ними */
+    margin-bottom: 10px;
+  }
+  
+  .add-contact-btn {
+    width: calc(50% - 10px); /* Також застосуйте calc для кнопки */
+  }

@@ -1,6 +1,6 @@
 // Navigation.js
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import '../css/homepage.css'
 
 
@@ -9,10 +9,10 @@ function Navigation() {
     <nav className='navigation'>
       <ul className='nav-links'>
         <li>
-          <NavLink to="/register" activeClassName="active-link">Register</NavLink>
+          <Link to="/register" className='main-link'>Signup</Link>
         </li>
         <li>
-          <NavLink to="/login" activeClassName="active-link">Login</NavLink>
+          <Link to="/login" className='main-link'>Login</Link>
         </li>
         {/* <li>
           <Link to="/contacts">Contacts</Link>

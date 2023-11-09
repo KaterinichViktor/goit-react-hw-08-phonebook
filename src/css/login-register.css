@@ -8,6 +8,8 @@
     background-color: white;
 
     border-radius: 5px;
+
+    justify-self: center;
 }
 /* .register,
 .register-form{
@@ -18,7 +20,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    text-align: left;
+    /* text-align: left; */
 
     margin-top: 20px;
 
@@ -46,7 +48,7 @@
 .login-input:focus,
 .register-input:focus{
 
-    border: 1px solid #c2d1e7;
+    border: 1px solid #eb6e48;
 }
 .login-btn,
 .register-btn{

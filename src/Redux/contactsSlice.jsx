@@ -24,6 +24,14 @@ export const contactsSlice = createSlice({
     setUserEmail: (state, action) => {
       state.userEmail = action.payload;
     },
+    setUserNickname: (state, action) => {
+      state.userNickname = action.payload;
+    },
+    logoutUser: (state) => {
+      state.token = '';
+      state.userEmail = '';
+      // state.userNickname = '';
+    },
   },
 });
 
@@ -33,11 +41,14 @@ export const {
   updateFilter,
   setToken,
   setUserEmail,
+  setUserNickname,
+  logoutUser
 } = contactsSlice.actions;
 
 export const selectContacts = (state) => state.contacts.items;
 export const selectFilter = (state) => state.contacts.filter;
 export const selectToken = (state) => state.contacts.token;
 export const selectUserEmail = (state) => state.contacts.userEmail;
+export const selectUserNickname = (state) => state.contacts.userNickname;
 
 export default contactsSlice.reducer;

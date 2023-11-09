@@ -26,7 +26,9 @@ code {
   width: 100vw;
   height: 100vh;
   background-color: #c2d1e7;
-  display: flex;
-  justify-content: center;
+  /* display: flex; */
+  /* justify-content: center; */
+  display: grid;
+  padding: 30px
 
 }

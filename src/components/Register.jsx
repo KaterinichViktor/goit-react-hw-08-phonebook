@@ -1,4 +1,8 @@
 // import React, { useState } from 'react';
+// import { registerUserApi } from '../components/api';
+// import { Link } from 'react-router-dom';
+
+// import '../css/login-register.css'
 
 // function Register() {
 //   const [formData, setFormData] = useState({
@@ -14,29 +18,37 @@
 
 //   const handleSubmit = (e) => {
 //     e.preventDefault();
-//     // Додайте код для обробки реєстрації користувача з використанням formData
+//     // Відправити дані реєстрації на сервер
+//     registerUserApi(formData)
+//       .then((response) => {
+//         // Обробка успішної реєстрації
+//         console.log('Користувач зареєстрований:', response);
+//       })
+//       .catch((error) => {
+//         // Обробка помилки реєстрації
+//         console.error('Помилка реєстрації:', error);
+//       });
 //   };
 
 //   return (
-//     <div>
-//       <h2>Register</h2>
-//       <form onSubmit={handleSubmit}>
-//         <label>
-//           Name:
-//           <input type="text" name="name" value={formData.name} onChange={handleChange} />
+//     <div className='register'>
+//       <h2 className='form-header'>Signup</h2>
+//       <form onSubmit={handleSubmit} className='register-form'>
+//         <label className='register-label'>
+//           <input type="text" name="name" value={formData.name} onChange={handleChange} className='register-input' placeholder='Nickname'/>
 //         </label>
-//         <br />
-//         <label>
-//           Email:
-//           <input type="email" name="email" value={formData.email} onChange={handleChange} />
+//         {/* <br /> */}
+//         <label className='register-label'>
+//           <input type="email" name="email" value={formData.email} onChange={handleChange} className='register-input' placeholder='Email'/>
 //         </label>
-//         <br />
-//         <label>
-//           Password:
-//           <input type="password" name="password" value={formData.password} onChange={handleChange} />
+//         {/* <br /> */}
+//         <label className='register-label'>
+//           <input type="password" name="password" value={formData.password} onChange={handleChange} className='register-input' placeholder='Password'/>
 //         </label>
-//         <br />
-//         <button type="submit">Register</button>
+//         {/* <br /> */}
+//         <button type="submit" className='register-btn'>Signup</button>
+
+//         <p className='hint'>Already have an account? <Link to="/login" className='hint-link' >Login</Link></p>
 //       </form>
 //     </div>
 //   );
@@ -44,12 +56,13 @@
 
 // export default Register;
 
-
 import React, { useState } from 'react';
 import { registerUserApi } from '../components/api';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 
-import '../css/login-register.css'
+import '../css/login-register.css';
+import { setUserNickname } from 'Redux/contactsSlice';
 
 function Register() {
   const [formData, setFormData] = useState({
@@ -58,6 +71,9 @@ function Register() {
     password: '',
   });
 
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
@@ -65,11 +81,21 @@ function Register() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    
     // Відправити дані реєстрації на сервер
     registerUserApi(formData)
       .then((response) => {
         // Обробка успішної реєстрації
         console.log('Користувач зареєстрований:', response);
+
+        // Зберегти імейл та нік у локальне сховище
+        dispatch(setUserNickname(formData.name));
+
+        localStorage.setItem('userEmailSignup', formData.email);
+        localStorage.setItem('userNickname', formData.name);
+
+        // Використовуємо navigate для переходу на сторінку логіну
+        navigate('/login');
       })
       .catch((error) => {
         // Обробка помилки реєстрації
@@ -84,17 +110,13 @@ function Register() {
         <label className='register-label'>
           <input type="text" name="name" value={formData.name} onChange={handleChange} className='register-input' placeholder='Nickname'/>
         </label>
-        {/* <br /> */}
         <label className='register-label'>
           <input type="email" name="email" value={formData.email} onChange={handleChange} className='register-input' placeholder='Email'/>
         </label>
-        {/* <br /> */}
         <label className='register-label'>
           <input type="password" name="password" value={formData.password} onChange={handleChange} className='register-input' placeholder='Password'/>
         </label>
-        {/* <br /> */}
-        <button type="submit" className='register-btn'>Register</button>
-
+        <button type="submit" className='register-btn'>Signup</button>
         <p className='hint'>Already have an account? <Link to="/login" className='hint-link' >Login</Link></p>
       </form>
     </div>
@@ -102,4 +124,3 @@ function Register() {
 }
 
 export default Register;
-

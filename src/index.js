@@ -1,16 +1,28 @@
+// index.js
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import store from './Redux/store';
 import App from './components/App';
-import { setToken } from './Redux/contactsSlice';
+import { setToken, setUserEmail, setUserNickname } from './Redux/contactsSlice';
 
 import './index.css';
 
-// Отримання токену з локального сховища
-const token = localStorage.getItem('token');
-if (token) {
-  store.dispatch(setToken(token));
+const storedToken = localStorage.getItem('token');
+
+if (storedToken) {
+  store.dispatch(setToken(storedToken));
+
+  const storedEmail = localStorage.getItem('userEmail');
+  const storedNickname = localStorage.getItem('userNickname');
+
+  if (storedEmail) {
+    store.dispatch(setUserEmail(storedEmail));
+  }
+
+  if (storedNickname) {
+    store.dispatch(setUserNickname(storedNickname));
+  }
 }
 
 ReactDOM.render(
@@ -19,5 +31,6 @@ ReactDOM.render(
   </Provider>,
   document.getElementById('root')
 );
+
 
 
