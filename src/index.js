@@ -8,6 +8,9 @@ import { setToken, setUserEmail, setUserNickname } from './Redux/contactsSlice';
 
 import './index.css';
 
+import Modal from 'react-modal';
+Modal.setAppElement('#root');
+
 const storedToken = localStorage.getItem('token');
 
 if (storedToken) {

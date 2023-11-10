@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 
 import Modal from 'react-modal';
+
+
 import '../css/contacts.css';
 
 import { useDispatch, useSelector } from 'react-redux';
@@ -205,7 +207,7 @@ return (
         onChange={(e) => setName(e.target.value)}
         className='input-add-contact'
         minLength="3"
-        maxlength="15"
+        maxLength="15"
       />
       <div className='number-input-box'>
         <input
@@ -215,7 +217,7 @@ return (
           value={code}
           onChange={(e) => setCode(e.target.value)}
           className='input-add-contact-code'
-          maxlength="2"
+          maxLength="2"
         />
 
         <label htmlFor="country-code" className='plus'>+</label>
@@ -227,7 +229,7 @@ return (
           value={number}
           onChange={(e) => setNumber(e.target.value)}
           className='input-add-contact-number'
-          maxlength="10"
+          maxLength="10"
           minLength="10"
           
         />
