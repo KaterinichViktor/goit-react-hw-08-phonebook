@@ -101,7 +101,7 @@ export const fetchCurrentUserApi = async (token) => {
 // };
 export const getAllContactsApi = async (token) => {
   try {
-    console.log('Token used for fetching contacts:', token); // Додайте цей рядок для виведення токену в консоль
+    // console.log('Token used for fetching contacts:', token); // Додайте цей рядок для виведення токену в консоль
     const response = await fetch('https://connections-api.herokuapp.com/contacts', {
       method: 'GET',
       headers: {

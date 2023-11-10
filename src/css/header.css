@@ -17,7 +17,7 @@
     font-weight: 600;
 }
 .logo:hover{
-    color: #eb6e48;
+    color: white;
 }
 
 .user-menu{
@@ -64,5 +64,5 @@ text-align: end;
     cursor: pointer;
 }
 .contacts-link:hover{
-    color: #eb6e48;
+    color: white;
 }
