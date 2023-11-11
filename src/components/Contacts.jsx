@@ -101,10 +101,6 @@ const Contacts = () => {
       });
   };
 
-  const handleFilterToggle = () => {
-    const filterInput = document.getElementById('filter');
-    filterInput.classList.toggle('show-input');
-  };
 
 
 return (
@@ -122,7 +118,7 @@ return (
           onChange={(e) => dispatch(updateFilter(e.target.value))}
           className='contacts-filter'
         />
-        <label htmlFor="filter" className="search" onClick={handleFilterToggle}>
+        <label htmlFor="filter" className="search">
             <svg fill="#000000" height="16px" width="16px" version="1.1" id="Capa_1" viewBox="0 0 490.4 490.4">
               <path d="M484.1,454.796l-110.5-110.6c29.8-36.3,47.6-82.8,47.6-133.4c0-116.3-94.3-210.6-210.6-210.6S0,94.496,0,210.796 s94.3,210.6,210.6,210.6c50.8,0,97.4-18,133.8-48l110.5,110.5c12.9,11.8,25,4.2,29.2,0C492.5,475.596,492.5,463.096,484.1,454.796z M41.1,210.796 c0-93.6,75.9-169.5,169.5-169.5s169.6,75.9,169.6,169.5s-75.9,169.5-169.5,169.5S41.1,304.396,41.1,210.796z"/>
             </svg>
@@ -211,29 +207,40 @@ return (
         maxLength="15"
       />
       <div className='number-input-box'>
-        <input
-          type="tel"
-          name="country-code"
-          placeholder=""
-          value={code}
-          onChange={(e) => setCode(e.target.value)}
-          className='input-add-contact-code'
-          maxLength="2"
-        />
+      <input
+        type="tel"
+        name="country-code"
+        placeholder=""
+        value={code}
+        onChange={(e) => {
+          const input = e.target.value;
+          const regex = /^[0-9]*$/; // Регулярний вираз, що дозволяє тільки цифри
+          if (regex.test(input) && input.length <= 2) {
+            setCode(input);
+          }
+        }}
+        className='input-add-contact-code'
+        maxLength="2"
+      />
 
-        <label htmlFor="country-code" className='plus'>+</label>
+      <label htmlFor="country-code" className='plus'>+</label>
 
-        <input
-          type="tel"
-          name="number"
-          placeholder="enter phone number"
-          value={number}
-          onChange={(e) => setNumber(e.target.value)}
-          className='input-add-contact-number'
-          maxLength="10"
-          minLength="10"
-          
-        />
+      <input
+        type="tel"
+        name="number"
+        placeholder="Enter phone number"
+        value={number}
+        onChange={(e) => {
+          const input = e.target.value;
+          const regex = /^[0-9]*$/; // Регулярний вираз, що дозволяє тільки цифри
+          if (regex.test(input) && input.length <= 10) {
+            setNumber(input);
+          }
+        }}
+        className='input-add-contact-number'
+        maxLength="10"
+        minLength="10"
+      />
       </div>
       
       <button onClick={handleAddContact} className='add-contact-submit-btn'>Add contact</button>

@@ -105,7 +105,7 @@ function Register() {
 
   return (
     <div className='register'>
-      <h2 className='form-header'>Signup</h2>
+      <h2 className='form-header'>Sign Up</h2>
       <form onSubmit={handleSubmit} className='register-form'>
         <label className='register-label'>
           <input type="text" name="name" value={formData.name} onChange={handleChange} className='register-input' placeholder='Nickname'/>
@@ -116,8 +116,8 @@ function Register() {
         <label className='register-label'>
           <input type="password" name="password" value={formData.password} onChange={handleChange} className='register-input' placeholder='Password'/>
         </label>
-        <button type="submit" className='register-btn'>Signup</button>
-        <p className='hint'>Already have an account? <Link to="/login" className='hint-link' >Login</Link></p>
+        <button type="submit" className='register-btn'>Sign Up</button>
+        <p className='hint'>Already have an account? <Link to="/login" className='hint-link' >SIgn In</Link></p>
       </form>
     </div>
   );

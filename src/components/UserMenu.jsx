@@ -39,7 +39,7 @@ function UserMenu() {
         </div>
       )}
       <button onClick={handleLogout} className='logout-btn'>
-        Logout
+        Log Out
       </button>
     </div>
   );

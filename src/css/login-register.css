@@ -44,6 +44,8 @@
     outline: none;
     border-radius: 5px;
     border: 1px solid rgba(0, 0, 0, 0.5);
+
+    transition: border 250ms linear;
 }
 .login-input:focus,
 .register-input:focus{
@@ -61,6 +63,8 @@
     border-radius: 5px;
     color: white;
     background-color: #fb8e6d;
+
+    transition: background-color 250ms linear;
 }
 .login-btn:hover,
 .register-btn:hover{
@@ -78,6 +82,8 @@
 .hint-link{
     color: #fb8e6d;
     font-weight: 500;
+    
+    transition: color 250ms linear;
 }
 .hint-link:hover{
     color: #eb6e48;
