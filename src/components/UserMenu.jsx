@@ -3,11 +3,15 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectToken, selectUserEmail, selectUserNickname, logoutUser } from '../Redux/contactsSlice';
 import { logoutUserApi } from '../components/api';
 
+import { useNavigate } from 'react-router-dom';
+
 function UserMenu() {
   const dispatch = useDispatch();
   const token = useSelector(selectToken);
   const userEmail = useSelector(selectUserEmail);
   const userNickname = useSelector(selectUserNickname);
+
+  const navigate = useNavigate();
 
   const handleLogout = async () => {
     try {
@@ -17,6 +21,9 @@ function UserMenu() {
       localStorage.removeItem('userEmail');
       localStorage.removeItem('userEmailSignup');
       // localStorage.removeItem('userNickname');
+
+      navigate('/');
+
     } catch (error) {
       console.error('Logout failed:', error);
     }

@@ -106,6 +106,7 @@ const Contacts = () => {
     filterInput.classList.toggle('show-input');
   };
 
+
 return (
   <div>
     <div className='contacts-header'>
@@ -139,7 +140,7 @@ return (
             <div className="contact-avatar" style={{ backgroundColor: contact.color }}>{contact.name.charAt(0).toUpperCase()}</div>
             <div className="contact-info">
                 <p className='contact-name'>{contact.name} </p>
-                <a className='contact-phone' href="tel:+{contact.number}">+{contact.number}</a>
+                <a className='contact-phone' href={`tel:+${contact.number}`}>+{contact.number.replace(/(\d{3})(\d{2})(\d{3})(\d{4})/, '$1 $2 $3 $4')}</a>
             </div>
             <button onClick={() => handleDeleteContact(contact.id)} className='delete-contact-btn'>
               <svg
