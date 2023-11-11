@@ -143,7 +143,7 @@ function Login() {
 
   return (
     <div className='login'>
-      <h2 className='form-header'>Sign In</h2>
+      <h2 className='form-header'>Sign in</h2>
       <form onSubmit={handleSubmit} className='login-form'>
         <label className='login-label'>
           <input type="email" name="email" value={formData.email} onChange={handleChange} className='login-input' placeholder='Email Address'/>
@@ -152,8 +152,8 @@ function Login() {
           <input type="password" name="password" value={formData.password} onChange={handleChange} className='login-input' placeholder='Password'/>
         </label>
         {error && <p style={{ color: 'red', fontSize: '14px' }}>{error}</p>}
-        <button type="submit" className='login-btn'>Sign In</button>
-        <p className='hint'>Don't have an account? <Link to="/register" className='hint-link'>Sign Up</Link></p>
+        <button type="submit" className='login-btn'>Sign in</button>
+        <p className='hint'>Don't have an account? <Link to="/register" className='hint-link'>Sign up</Link></p>
       </form>
     </div>
   );
