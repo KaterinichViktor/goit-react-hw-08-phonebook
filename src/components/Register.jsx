@@ -117,7 +117,7 @@ function Register() {
           <input type="password" name="password" value={formData.password} onChange={handleChange} className='register-input' placeholder='Password'/>
         </label>
         <button type="submit" className='register-btn'>Sign up</button>
-        <p className='hint'>Already have an account? <Link to="/login" className='hint-link' >SIgn in</Link></p>
+        <p className='hint'>Already have an account? <Link to="/login" className='hint-link' >Sign in</Link></p>
       </form>
     </div>
   );
